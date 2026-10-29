@@ -1,0 +1,6 @@
+1. Tạo repository mới trên GitHub (ví dụ: esp32-flasher), để Public.
+2. Tải toàn bộ thư mục này lên (index.html, các manifest_*.json, thư mục firmware/ cùng các file .bin).
+3. Settings > Pages > Source: Deploy from a branch > nhánh main, thư mục / (root) > Save.
+4. Sau 1-2 phút trang có địa chỉ https://<tên-github>.github.io/esp32-flasher/
+5. Mở bằng Chrome/Edge, cắm ESP32 và nạp.
+Cập nhật bản mới: thay file .bin trong firmware/ rồi commit.

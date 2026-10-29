@@ -1,0 +1,16 @@
+{
+  "name": "Điều khiển thiết bị màn 2.0\" 320x240",
+  "version": "v21.0",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/dieu_khien_thiet_bi_man20.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

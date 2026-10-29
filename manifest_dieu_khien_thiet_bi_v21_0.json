@@ -1,0 +1,16 @@
+{
+  "name": "Điều khiển thiết bị v21 (GPIO-NODE1)",
+  "version": "v21.0",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/dieu_khien_thiet_bi_v21_0.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

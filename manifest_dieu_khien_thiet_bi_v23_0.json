@@ -1,0 +1,16 @@
+{
+  "name": "Điều khiển thiết bị v23 (nhiều module)",
+  "version": "v23.0",
+  "new_install_prompt_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/dieu_khien_thiet_bi_v23_0.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

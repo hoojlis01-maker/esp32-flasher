@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nạp firmware ESP32 - Hooj-Lis</title>
+<style>
+:root{--bg:#f4f6fa;--fg:#14202e;--mut:#5b6b7e;--card:#fff;--line:#d5dce6;--acc:#0a7cff;--acct:#fff;--ok:#12803c;--warn:#b45309;--beta:#8a5a00;--betabg:#fff1d6}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--fg:#e7eef9;--mut:#93a4bb;--card:#121c30;--line:#24324d;--acc:#4aa3ff;--acct:#04101f;--ok:#5ad287;--warn:#f6ad55;--beta:#ffd37a;--betabg:#3a2a08}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px max(16px,env(safe-area-inset-right,0px))}
+main{max-width:880px;margin:0 auto}
+h1{font-size:1.7rem;margin:0 0 4px;text-wrap:balance}
+.sub{color:var(--mut);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h2{font-size:1.1rem;margin:0}
+.card p{margin:0;color:var(--mut);font-size:.92rem;flex:1}
+.meta{display:flex;gap:6px;align-items:center}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ok)}
+.tag.beta{color:var(--beta);background:var(--betabg);padding:1px 7px;border-radius:6px}
+.chip{font-size:.72rem;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+.btn{background:var(--acc);color:var(--acct);border:0;border-radius:8px;padding:10px 16px;font:600 .95rem system-ui;cursor:pointer}
+.btn:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.warn,.miss{color:var(--warn);font-size:.88rem}
+.ver{color:var(--mut)}
+section.how{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+section.how h2{font-size:1.05rem;margin:0 0 8px}
+section.how ol{margin:0;padding-left:20px;display:grid;gap:4px}
+footer{margin-top:28px;color:var(--mut);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Nạp firmware ESP32</h1>
+  <p class="sub">Nạp trực tiếp qua trình duyệt bằng cáp USB, không cần Arduino IDE hay thư viện.</p>
+  <div class="grid">
+  <article class="card" data-bin="firmware/trung_tam_dieu_khien_v21_0.bin">
+    <div class="meta"><span class="tag ">chuẩn</span><span class="chip">ESP32-S3</span></div>
+    <h2>Trung tâm điều khiển v21.0</h2>
+    <p>Bộ điều khiển trung tâm: màn ILI9341 cảm ứng, remote IR, BLE, trang web điện thoại.</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_trung_tam_dieu_khien_v21_0.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/trung_tam_dieu_khien_v21_0.bin</span>
+    </div>
+    <small class="ver">v21.0</small>
+  </article>
+  <article class="card" data-bin="firmware/dieu_khien_thiet_bi_v21_0.bin">
+    <div class="meta"><span class="tag ">chuẩn</span><span class="chip">ESP32-S3</span></div>
+    <h2>Điều khiển thiết bị v21 (GPIO-NODE1)</h2>
+    <p>Node giao diện 240x240, PIN 4821, failsafe 3 giây, kênh R1–R11 và máy bơm R4.</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_dieu_khien_thiet_bi_v21_0.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/dieu_khien_thiet_bi_v21_0.bin</span>
+    </div>
+    <small class="ver">v21.0</small>
+  </article>
+  <article class="card" data-bin="firmware/dieu_khien_thiet_bi_man20.bin">
+    <div class="meta"><span class="tag ">chuẩn</span><span class="chip">ESP32-S3</span></div>
+    <h2>Điều khiển thiết bị màn 2.0" 320x240</h2>
+    <p>Cùng logic node v21, giao diện giống hub (màn ST7789V 2.0").</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_dieu_khien_thiet_bi_man20.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/dieu_khien_thiet_bi_man20.bin</span>
+    </div>
+    <small class="ver">v21.0</small>
+  </article>
+  <article class="card" data-bin="firmware/trung_tam_dieu_khien_v22_0.bin">
+    <div class="meta"><span class="tag beta">thử nghiệm</span><span class="chip">ESP32-S3</span></div>
+    <h2>Trung tâm điều khiển v22 (SD, nhạc, ảnh)</h2>
+    <p>Thẻ SD, nhạc MP3/WAV, thư viện ảnh, 3 đèn trạng thái qua PCF8575 (đổi chân so với v21). Thử nghiệm.</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_trung_tam_dieu_khien_v22_0.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/trung_tam_dieu_khien_v22_0.bin</span>
+    </div>
+    <small class="ver">v22.0</small>
+  </article>
+  <article class="card" data-bin="firmware/trung_tam_dieu_khien_v23_0.bin">
+    <div class="meta"><span class="tag beta">thử nghiệm</span><span class="chip">ESP32-S3</span></div>
+    <h2>Trung tâm điều khiển v23 (nhiều module)</h2>
+    <p>Kết nối tối đa 3 module, có trang quản lý module. Thử nghiệm.</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_trung_tam_dieu_khien_v23_0.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/trung_tam_dieu_khien_v23_0.bin</span>
+    </div>
+    <small class="ver">v23.0</small>
+  </article>
+  <article class="card" data-bin="firmware/dieu_khien_thiet_bi_v23_0.bin">
+    <div class="meta"><span class="tag beta">thử nghiệm</span><span class="chip">ESP32-S3</span></div>
+    <h2>Điều khiển thiết bị v23 (nhiều module)</h2>
+    <p>Tên và PIN riêng, thời gian khóa an toàn dài hơn. Thử nghiệm.</p>
+    <div class="act">
+      <esp-web-install-button manifest="manifest_dieu_khien_thiet_bi_v23_0.json">
+        <button slot="activate" class="btn">Nạp firmware</button>
+        <span slot="unsupported" class="warn">Trình duyệt không hỗ trợ. Dùng Chrome hoặc Edge trên máy tính.</span>
+        <span slot="not-allowed" class="warn">Cần mở trang bằng HTTPS.</span>
+      </esp-web-install-button>
+      <span class="miss" hidden>Chưa có file firmware/dieu_khien_thiet_bi_v23_0.bin</span>
+    </div>
+    <small class="ver">v23.0</small>
+  </article>
+  </div>
+  <section class="how">
+    <h2>Cách nạp</h2>
+    <ol>
+      <li>Mở trang này bằng Chrome hoặc Edge (máy tính, hoặc Android có cáp OTG).</li>
+      <li>Cắm ESP32 vào máy bằng cáp USB có truyền dữ liệu.</li>
+      <li>Bấm <b>Nạp firmware</b> ở bản cần nạp, chọn cổng COM của mạch rồi bấm Cài đặt.</li>
+      <li>Nếu không thấy cổng hoặc nạp lỗi: giữ nút BOOT, bấm RESET một lần, thả BOOT rồi thử lại.</li>
+      <li>Sau khi nạp xong, bấm RESET mạch. Cài đặt đã lưu (WiFi, PIN) được giữ lại.</li>
+    </ol>
+  </section>
+  <footer>Hooj-Lis · lập trình, thiết kế code và giữ bản quyền các dự án ESP32.</footer>
+</main>
+<script type="module" src="https://unpkg.com/esp-web-tools@10.1.1/dist/web/install-button.js?module"></script>
+<script>
+// Ẩn nút nếu chưa có file .bin tương ứng trong thư mục firmware/
+document.querySelectorAll('.card').forEach(function(card){
+  fetch(card.dataset.bin,{method:'HEAD'}).then(function(r){
+    if(!r.ok) throw 0;
+  }).catch(function(){
+    var b=card.querySelector('esp-web-install-button'); if(b) b.hidden=true;
+    card.querySelector('.miss').hidden=false;
+  });
+});
+</script>
+</body>
+</html>
